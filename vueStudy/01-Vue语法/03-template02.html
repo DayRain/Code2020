@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <todo-item v-for="item in categoryList" v-bind:item="item" v-bind:key="item.id"></todo-item>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('todo-item',{
+            props:['item'],
+            template:`<li>{{item}}</li>`
+        })
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    categoryList:[
+                        {
+                            id : 1,
+                            name: '水果'
+                        },
+                        {
+                            id:2,
+                            name:'蔬菜'
+                        },
+                        {
+                            id:3,
+                            name:'炸鸡'
+                        }
+                    ]
+                }
+            },
+        })
+        app.username='nihao';
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 组件实例之间的作用域是独立的 -->
+    <div id="app">
+
+        <button-count></button-count>
+        <button-count></button-count>
+        <button-count></button-count>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        Vue.component('button-count',{
+            data() {
+                return {
+                    count:0
+                }
+            },
+            template:`<button @click='count++'>click me {{count}} times </button`
+        })
+
+        var app = new Vue({
+            el:"#app"
+        })
+    </script>   
+</body>
+</html>

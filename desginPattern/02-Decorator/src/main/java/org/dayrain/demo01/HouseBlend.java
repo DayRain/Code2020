@@ -1,0 +1,13 @@
+package org.dayrain.demo01;
+
+public class HouseBlend extends Beverage {
+
+    public HouseBlend() {
+        this.description = "HouseBlend";
+    }
+
+    @Override
+    public double cost() {
+        return 0.99;
+    }
+}

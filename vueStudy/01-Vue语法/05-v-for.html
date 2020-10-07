@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="cz-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>遍历数组</h1>
+        <p   v-for="(item,index) in listComputed">
+            {{index+1}},{{item.name}},{{item.age}}
+        </p>
+        <h1>遍历数组</h1>
+        <p v-for="(key,value,index) in student">
+            {{index}},{{key}}:{{value}}
+        </p>
+    </div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                list: [
+                    {
+                        name: 'admin',
+                        age: 18
+                    },
+
+                    {
+                        name: 'user',
+                        age: 17
+                    },
+
+                    {
+                        name: 'demo',
+                        age: 16
+                    },
+
+                ],
+                student: {
+                    name: 'xiaoming',
+                    score: 123,
+                    age: 19,
+                    weight: 210
+                }
+            }
+        },
+        computed: {
+            // 过滤
+            listComputed: function () {
+                return this.list.filter(function (listItem) {
+                    return listItem.age >= 17;
+                })
+            }
+        },
+    })
+</script>
+
+</html>

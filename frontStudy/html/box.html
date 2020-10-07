@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子模型</title>
+    <style>
+        /* 实现盒子居中 */
+        #box1{
+            width: 800px;
+            height: 100px;
+            background-color: skyblue;
+            margin: 0 auto ;
+        }
+
+        /* 行内元素或者是行内块元素需要居中的话，在其父级块元素内添加一个text-algin*/
+        #box2{
+            width: 800px;
+            height: 100px;
+            background-color: green;
+            text-align: center;
+        }
+
+        img{
+            width: 50px;
+            height: 50px;
+        }
+
+        #box31{
+            width: 800px;
+            height: 100px;
+            background-color: skyblue;
+            /* border: 1px solid transparent; */
+            /* padding-top: 1px; */
+            overflow: hidden;
+        }
+
+        /* 塌陷
+        子盒子设置margin的时候，会带着父盒子一起移动，出现”塌陷的现象“
+        解决方案：
+        1、父盒子添加边框
+        2、设置内边距,例如 padding-top
+        3、
+         */
+        #box32{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            margin-top: 10px;
+        }
+
+        /* 清除边距 */
+        *{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box1">
+    </div>
+
+    <div id="box2">
+        hello, world
+        <img src="../img/bg.png"/>
+    </div >
+
+    <div id="box31">
+        <div id="box32">
+        </div >
+    </div>
+
+</body>
+</html>

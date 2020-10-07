@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="cz-CH">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="app">
+    <span v-if="seen">{{message}}</span>
+
+    <div v-for="item in list">
+        {{item.id}}, {{item.name}}, {{item.age}}
+    </div>
+
+    <!-- 点击事件 -->
+    <div>
+        <input type="button" value="点击我" @click = "clickMe">
+        <input type="button" value="点击我" v-on:click = "clickMe">
+    </div>
+
+    <!-- 双向绑定 -->
+    <input type="text" v-model="message">
+
+
+    
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data() {
+            return {
+                message:"hello",
+                seen: true,
+                list:[
+                    {
+                        id:1,
+                        name:"xiaoming",
+                        age:100
+                    },
+                    
+                    {
+                        id:2,
+                        name:"admin",
+                        age:100
+                    },
+
+                    {
+                        id:3,
+                        name:"user",
+                        age:100
+                    },
+                    ]
+            }
+        },
+
+        methods: {
+            clickMe : function(){
+                alert("别点我！");
+            }
+        },
+    })
+</script>
+</body>
+</html>

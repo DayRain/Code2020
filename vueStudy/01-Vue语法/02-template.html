@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cz-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="app">
+        <todo-item></todo-item>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component("todo-item", {
+            'template':`<li>这是一个待办事项呀！</li>`
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data() {
+                return {
+                    
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

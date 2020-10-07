@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+
+        <!-- v-once 第一次选然后，将不会改变 -->
+        <span v-once>{{message}}</span>
+        <span>{{message}}</span>
+        <!-- v-html 修改内容， 不可以用与模板 -->
+        <span v-html="content"></span>
+
+
+        <form v-on:submit.prevent="onSubmit">
+            <button type="submit" value="提交">tijiao</button>
+        </form>
+
+        <div>
+            <input v-model:value="firstName" />
+            <input v-model:value="lastName" />
+
+            <p>{{fullName}}</p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            'el':"#app",
+            data() {
+                return {
+                    message:"hello world",
+                    content:"<h1>你好</h1>",
+                    firstName:"peng",
+                    lastName:"hao",
+                    // fullName: this.firstName + this.lastName,
+                }
+            },
+            methods: {
+                onSubmit:function(){
+                    console.log("hello");
+                }
+            },
+            // 计算属性
+            computed: {
+                fullName:function(){
+                    return this.firstName+ this.lastName;
+                }
+            },
+            //监听属性 ,当firstName发生改变时，会调用函数
+            watch: {
+                firstName:function(newValue, oldVaule){
+                    console.log(newValue + ":" + oldVaule);
+                }
+            },
+        })
+    </script>
+</body>
+</html>

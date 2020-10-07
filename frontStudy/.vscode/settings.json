@@ -1,0 +1,8 @@
+{
+    // "editor.renameOnType": true,
+    "files.autoSave": "afterDelay",
+    "auto-rename-tag.activationOnLanguage": [
+        
+        "*"
+    ]
+}

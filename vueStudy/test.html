@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="app">
+        <button @click="login()">登录</button>
+        <button @click="logout()">登出</button>
+        <button @click="postReq()">发起请求</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+
+                }
+            },
+            methods: {
+
+                login: function () {
+                    axios({
+                        method: 'post',
+                        url: "http://192.168.1.207:8080/front/user/login",
+                        data: {
+                            loginName: "admin",
+                            password: "123"
+                        },
+                        withCredentials: true
+                    }).then(function (res, err) {
+                        console.log(res);
+                        console.log(err)
+                    })
+                },
+                logout: function () {
+
+                    axios({
+                        method: 'get',
+                        url: "http://192.168.1.207:8080/front/user/logout",
+                        withCredentials: true
+                    }).then(function (res, err) {
+                        console.log(res);
+                        console.log(err)
+                    })
+                },
+                postReq: function () {
+                    axios({
+                        method: 'post',
+                        url: "http://192.168.1.207:8080/front/file/getFileListByPage",
+                        data:{
+                            pageNum: 1,
+                            pageSize: 2
+                        },
+                        withCredentials: true
+                    }).then(function (res, err) {
+                        console.log(res);
+                        console.log(err)
+                    })
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
